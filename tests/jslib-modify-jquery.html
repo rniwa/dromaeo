@@ -12,7 +12,7 @@ var ret, tmp, div, a, dd;
 var html = document.body.innerHTML,
 	elem = document.createElement("div"),
 	elem2 = document.createElement("strong"),
-	elemStr = "<strong>some text</strong>";
+	elemStr = "<strike>some text</strike>";
 
 	prep(function(){
 		a = jQuery("a");
@@ -29,24 +29,44 @@ var html = document.body.innerHTML,
 	});
 	*/
 
+	var runs = 0;
 	test("jQuery - html()", function(){
 		dd.html( elemStr );
+		runs++;
+		if (runs % 1000 == 0)
+			jQuery('strike').remove();
 	});
 
+	runs = 0;
 	test("jQuery - before()", function(){
 		div.before( elemStr );
+		runs++;
+		if (runs % 1000 == 0)
+			jQuery('strike').remove();
 	});
 
+	runs = 0;
 	test("jQuery - after()", function(){
-		div.before( elemStr );
+		div.after( elemStr );
+		runs++;
+		if (runs % 1000 == 0)
+			jQuery('strike').remove();
 	});
 
+	runs = 0;
 	test("jQuery - prepend()", function(){
 		div.prepend( elemStr );
+		runs++;
+		if (runs % 1000 == 0)
+			jQuery('strike').remove();
 	});
 
+	runs = 0;
 	test("jQuery - append()", function(){
 		div.append( elemStr );
+		runs++;
+		if (runs % 1000 == 0)
+			jQuery('strike').remove();
 	});
 
 	/* // Need a good way to test
